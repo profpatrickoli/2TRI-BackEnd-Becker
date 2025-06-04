@@ -62,6 +62,24 @@ const frutas = [
         qtdKg: 80
     }
 ]
+console.log(frutas)
 
-frutaEncontrada = frutas.find((fruta) => fruta.nome === "abacaxi");
+const frutaEncontrada = frutas.find((fruta) => fruta.nome === "abacaxi");
 console.log(frutaEncontrada)
+
+// alterando um objeto
+const frutasAlteradas = frutas.map((fruta) => {
+    return {
+        ...fruta,
+        precoKg: (fruta.precoKg * 0.5).toFixed(2)
+    }
+})
+console.log(frutasAlteradas);
+
+// filtrando frutas mais baratas
+const frutasFiltradas = frutasAlteradas.filter((fruta) => fruta.precoKg <= 3)
+console.log(frutasFiltradas)
+
+// ordenando pelo nome
+frutasAlteradas.sort((a,b) => a.precoKg - b.precoKg)
+console.log(frutasAlteradas)
